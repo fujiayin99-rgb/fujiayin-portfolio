@@ -158,6 +158,17 @@ document.querySelectorAll("[data-video-play]").forEach((button) => {
   });
 });
 
+function setupVideoProtection() {
+  document.querySelectorAll("video").forEach((video) => {
+    video.controlsList?.add("nodownload");
+    video.controlsList?.add("noplaybackrate");
+    video.controlsList?.add("noremoteplayback");
+    video.disablePictureInPicture = true;
+    video.disableRemotePlayback = true;
+    video.addEventListener("contextmenu", (event) => event.preventDefault());
+  });
+}
+
 function setupVideoCardReveal() {
   const cards = document.querySelectorAll(".video-card");
 
@@ -198,4 +209,5 @@ function setupVideoCardReveal() {
 }
 
 applyLanguage(activeLanguage);
+setupVideoProtection();
 setupVideoCardReveal();
