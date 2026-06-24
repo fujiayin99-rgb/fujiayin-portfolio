@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Fu Jiayin Logo Option 04</title>
+  <desc id="desc">Play button and FJ monogram logo.</desc>
+  <circle cx="600" cy="610" r="352" fill="#242426"/>
+  <circle cx="600" cy="610" r="266" fill="#f5f5f7"/>
+  <path d="M520 450v320l270-160-270-160Z" fill="#0066cc"/>
+  <path d="M318 956h250v64H398v120h146v64H398v192h-80V956Z" fill="#f5f5f7"/>
+  <path d="M690 956h84v292c0 88-54 144-144 144-54 0-101-20-136-58l48-50c23 27 50 40 82 40 43 0 66-27 66-78V956Z" fill="#f5f5f7"/>
+  <text x="600" y="1308" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" fill="#0066cc" letter-spacing="6">CUT / PACE / PACKAGE</text>
+</svg>
