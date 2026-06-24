@@ -315,13 +315,26 @@ h3 {
 }
 
 .hero-photo-band {
+  position: relative;
   display: grid;
   place-items: center;
   padding: 0 var(--page-x) 94px;
-  background: linear-gradient(to bottom, #1d1d1f 0 42%, #fff 42% 100%);
+  overflow: hidden;
+  background: linear-gradient(180deg, #1d1d1f 0%, #1d1d1f 18%, #243241 42%, #eef4fa 72%, #fff 100%);
+}
+
+.hero-photo-band::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: min(34vw, 360px);
+  z-index: 1;
+  background: linear-gradient(180deg, #1d1d1f 0%, rgba(29, 29, 31, 0.9) 26%, rgba(29, 29, 31, 0.46) 62%, rgba(29, 29, 31, 0) 100%);
+  content: "";
+  pointer-events: none;
 }
 
 .hero-photo-band img {
+  position: relative;
   width: min(100%, 1180px);
   aspect-ratio: 16 / 9;
   object-fit: cover;
