@@ -258,13 +258,14 @@ h3 {
 .source-button {
   width: fit-content;
   margin-top: 22px;
-  border: 1px solid rgba(0, 102, 204, 0.82);
-  background: rgba(0, 102, 204, 0.12);
-  color: #7ebcff;
+  border: 1px solid rgba(0, 102, 204, 0.95);
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 14px 34px rgba(0, 102, 204, 0.25);
 }
 
 .source-button:hover {
-  background: rgba(0, 102, 204, 0.2);
+  background: var(--blue-dark);
   color: #fff;
 }
 
