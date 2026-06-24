@@ -208,6 +208,36 @@ function setupVideoCardReveal() {
   });
 }
 
+function setupHeroPhotoFade() {
+  const photoBand = document.querySelector(".hero-photo-band");
+
+  if (!photoBand || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  let ticking = false;
+
+  function updateFade() {
+    const rect = photoBand.getBoundingClientRect();
+    const fadeDistance = Math.max(220, window.innerHeight * 0.45);
+    const progress = Math.min(Math.max((window.innerHeight - rect.top) / fadeDistance, 0), 1);
+    const strength = 1 - progress * 0.72;
+
+    photoBand.style.setProperty("--photo-fade-strength", strength.toFixed(3));
+    ticking = false;
+  }
+
+  function requestUpdate() {
+    if (ticking) return;
+
+    ticking = true;
+    window.requestAnimationFrame(updateFade);
+  }
+
+  updateFade();
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
+}
+
 applyLanguage(activeLanguage);
 setupVideoProtection();
 setupVideoCardReveal();
+setupHeroPhotoFade();

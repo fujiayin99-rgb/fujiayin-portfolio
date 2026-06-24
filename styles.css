@@ -320,17 +320,20 @@ h3 {
   place-items: center;
   padding: 0 var(--page-x) 94px;
   overflow: hidden;
-  background: linear-gradient(180deg, #1d1d1f 0%, #1d1d1f 18%, #243241 42%, #eef4fa 72%, #fff 100%);
+  background: linear-gradient(180deg, #1d1d1f 0%, #1d1d1f 12%, #25303a 34%, #f5f9fd 74%, #fff 100%);
+  --photo-fade-strength: 1;
 }
 
 .hero-photo-band::before {
   position: absolute;
   inset: 0 0 auto;
-  height: min(34vw, 360px);
+  height: min(24vw, 260px);
   z-index: 1;
-  background: linear-gradient(180deg, #1d1d1f 0%, rgba(29, 29, 31, 0.9) 26%, rgba(29, 29, 31, 0.46) 62%, rgba(29, 29, 31, 0) 100%);
+  background: linear-gradient(180deg, #1d1d1f 0%, rgba(29, 29, 31, 0.62) 34%, rgba(29, 29, 31, 0) 100%);
   content: "";
+  opacity: var(--photo-fade-strength);
   pointer-events: none;
+  transition: opacity 140ms linear;
 }
 
 .hero-photo-band img {
