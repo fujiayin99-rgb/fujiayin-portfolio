@@ -13,6 +13,8 @@
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
   --radius: 8px;
   --page-x: clamp(20px, 5vw, 84px);
+  --content-max: 1180px;
+  --content-pad: max(var(--page-x), calc((100vw - var(--content-max)) / 2));
 }
 
 * {
@@ -63,7 +65,7 @@ a {
   align-items: center;
   gap: 24px;
   min-height: 52px;
-  padding: 6px var(--page-x);
+  padding: 6px var(--content-pad);
   background: rgba(255, 255, 255, 0.88);
   border-bottom: 1px solid rgba(29, 29, 31, 0.12);
   backdrop-filter: saturate(180%) blur(20px);
@@ -136,7 +138,7 @@ a {
   gap: clamp(30px, 6vw, 92px);
   min-height: calc(100vh - 52px);
   overflow: hidden;
-  padding: 88px var(--page-x) 68px;
+  padding: 88px var(--content-pad) 68px;
   background: #1d1d1f;
   color: #fff;
   text-align: left;
@@ -318,7 +320,7 @@ h3 {
   position: relative;
   display: grid;
   place-items: center;
-  padding: 0 var(--page-x) 94px;
+  padding: 0 var(--content-pad) 94px;
   overflow: hidden;
   background: linear-gradient(180deg, #1d1d1f 0%, #1d1d1f 12%, #25303a 34%, #f5f9fd 74%, #fff 100%);
   --photo-fade-strength: 1;
@@ -346,7 +348,7 @@ h3 {
 }
 
 .section {
-  padding: 106px var(--page-x);
+  padding: 106px var(--content-pad);
 }
 
 .intro-grid,
@@ -676,7 +678,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   gap: 18px;
-  padding: 28px var(--page-x);
+  padding: 28px var(--content-pad);
   background: var(--band);
   border-top: 1px solid var(--line-soft);
   color: var(--muted);
