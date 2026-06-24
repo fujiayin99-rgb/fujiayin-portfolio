@@ -314,6 +314,21 @@ h3 {
   filter: drop-shadow(0 28px 70px rgba(0, 0, 0, 0.34));
 }
 
+.hero-photo-band {
+  display: grid;
+  place-items: center;
+  padding: 0 var(--page-x) 94px;
+  background: linear-gradient(to bottom, #1d1d1f 0 42%, #fff 42% 100%);
+}
+
+.hero-photo-band img {
+  width: min(100%, 1180px);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 30px 84px rgba(0, 0, 0, 0.24);
+}
+
 .section {
   padding: 106px var(--page-x);
 }
@@ -692,6 +707,10 @@ h3 {
   .hero {
     min-height: auto;
     padding-top: 56px;
+  }
+
+  .hero-photo-band {
+    padding-bottom: 72px;
   }
 
   .hero-reel {
