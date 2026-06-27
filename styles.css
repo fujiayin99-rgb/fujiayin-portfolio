@@ -27,6 +27,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--paper);
   color: var(--ink);
   font-family:
@@ -49,11 +50,38 @@ a {
 button,
 a {
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 :focus-visible {
   outline: 3px solid rgba(0, 102, 204, 0.32);
   outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: var(--page-x);
+  z-index: 100;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+main:focus {
+  outline: none;
+}
+
+[id] {
+  scroll-margin-top: 76px;
 }
 
 .site-header {
@@ -179,6 +207,7 @@ h1 {
   line-height: 0.96;
   letter-spacing: 0;
   text-transform: uppercase;
+  text-wrap: balance;
   word-break: keep-all;
   overflow-wrap: normal;
 }
@@ -188,6 +217,7 @@ h2 {
   font-size: 3.65rem;
   line-height: 1.02;
   letter-spacing: 0;
+  text-wrap: balance;
 }
 
 h3 {
@@ -296,6 +326,7 @@ h3 {
   color: #fff;
   font-size: 1.24rem;
   font-weight: 800;
+  font-variant-numeric: tabular-nums;
 }
 
 .hero-stats dd {
