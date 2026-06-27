@@ -164,12 +164,24 @@ main:focus {
   grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.62fr);
   align-items: center;
   gap: clamp(30px, 6vw, 92px);
-  min-height: calc(100vh - 52px);
+  min-height: calc(100svh - 52px);
   overflow: hidden;
-  padding: 88px var(--content-pad) 68px;
+  padding: clamp(64px, 8vh, 96px) var(--content-pad);
   background: #1d1d1f;
   color: #fff;
   text-align: left;
+}
+
+.hero::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: clamp(96px, 16vh, 180px);
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(29, 29, 31, 0) 0%, rgba(29, 29, 31, 0.78) 62%, #1d1d1f 100%);
+  content: "";
+  pointer-events: none;
 }
 
 .hero-copy {
@@ -177,6 +189,9 @@ main:focus {
   z-index: 1;
   max-width: 760px;
   margin: 0;
+  opacity: var(--hero-content-opacity, 1);
+  transform: translateY(var(--hero-content-y, 0));
+  will-change: opacity, transform;
 }
 
 .eyebrow,
@@ -342,6 +357,9 @@ h3 {
   justify-content: flex-end;
   width: 100%;
   margin: 0;
+  opacity: var(--hero-content-opacity, 1);
+  transform: translateY(var(--hero-content-y, 0));
+  will-change: opacity, transform;
 }
 
 .reel-frame {
@@ -356,6 +374,8 @@ h3 {
 
 .reel-frame img {
   width: 100%;
+  height: auto;
+  max-height: min(50vh, 540px);
   aspect-ratio: 4 / 5;
   object-fit: contain;
   filter: drop-shadow(0 28px 70px rgba(0, 0, 0, 0.34));
@@ -365,7 +385,7 @@ h3 {
   position: relative;
   display: grid;
   place-items: center;
-  padding: 0 var(--content-pad) 94px;
+  padding: 0 var(--content-pad) 82px;
   overflow: hidden;
   background: linear-gradient(180deg, #1d1d1f 0%, #1d1d1f 12%, #25303a 34%, #f5f9fd 74%, #fff 100%);
   --photo-fade-strength: 1;
@@ -386,6 +406,7 @@ h3 {
 .hero-photo-band img {
   position: relative;
   width: min(100%, 1180px);
+  height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: var(--radius);
@@ -393,7 +414,7 @@ h3 {
 }
 
 .section {
-  padding: 106px var(--content-pad);
+  padding: 92px var(--content-pad);
 }
 
 .intro-grid,
@@ -432,7 +453,7 @@ h3 {
 
 .work-section {
   background: #fff;
-  padding-top: 72px;
+  padding-top: 76px;
 }
 
 .video-grid {
@@ -768,12 +789,13 @@ h3 {
   }
 
   .hero {
-    min-height: auto;
-    padding-top: 56px;
+    min-height: calc(100svh - 92px);
+    padding-top: 52px;
+    padding-bottom: 56px;
   }
 
   .hero-photo-band {
-    padding-bottom: 72px;
+    padding-bottom: 68px;
   }
 
   .hero-reel {

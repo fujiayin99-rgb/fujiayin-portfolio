@@ -239,7 +239,39 @@ function setupHeroPhotoFade() {
   window.addEventListener("resize", requestUpdate);
 }
 
+function setupHeroCoverFade() {
+  const hero = document.querySelector(".hero");
+
+  if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  let ticking = false;
+
+  function updateFade() {
+    const fadeDistance = Math.max(520, window.innerHeight * 0.82);
+    const progress = Math.min(Math.max(window.scrollY / fadeDistance, 0), 1);
+    const eased = progress * progress * (3 - 2 * progress);
+    const opacity = 1 - eased * 0.48;
+    const lift = -progress * 22;
+
+    hero.style.setProperty("--hero-content-opacity", opacity.toFixed(3));
+    hero.style.setProperty("--hero-content-y", `${lift.toFixed(1)}px`);
+    ticking = false;
+  }
+
+  function requestUpdate() {
+    if (ticking) return;
+
+    ticking = true;
+    window.requestAnimationFrame(updateFade);
+  }
+
+  updateFade();
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
+}
+
 applyLanguage(activeLanguage);
 setupVideoProtection();
 setupVideoCardReveal();
 setupHeroPhotoFade();
+setupHeroCoverFade();
